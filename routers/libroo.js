@@ -16,6 +16,12 @@ router.get('/user/:id', async(req, res) => {
     res.json(user)
 })
 
+router.get('/usermail/:mail', async(req, res) => {
+    const { mail } = req.params
+    const user = await User.findOne({"email":mail})
+    res.send(user)
+})
+
 router.post('/adduser', async(req, res) => {
 
     const post = req.body
